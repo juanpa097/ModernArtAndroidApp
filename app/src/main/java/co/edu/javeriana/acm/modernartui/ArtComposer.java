@@ -48,9 +48,9 @@ public class ArtComposer extends AppCompatActivity {
         Log.d("TAG", item.toString());
         Log.d("TAG", "ENTER");
         AlertDialog.Builder alert = new AlertDialog.Builder(ArtComposer.this);
-        alert.setTitle("See More Information");
-        alert.setMessage("Are you sure you whant to exit?");
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        alert.setTitle("Inspired by the works of Modern Art masters such as Piet Mondrian and Ben Nicholson");
+        alert.setMessage("Click below to learn more!");
+        alert.setPositiveButton("Visit MoMa!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String url = "https://www.moma.org/";
@@ -59,13 +59,14 @@ public class ArtComposer extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        alert.setNegativeButton("No",null);
+        alert.setNegativeButton("Not Now",null);
         AlertDialog alertDialog = alert.create();
         alertDialog.show();
         return true;
     }
 
     private void userInterfaceSetUp() {
+        findViewById(R.id.activity_art_composer).getRootView().setBackgroundColor(Color.BLACK);
         mColorBar = (SeekBar) findViewById(R.id.colorBar);
         mArtFragment = (RectangleOneFragment) findViewById(R.id.art_fragment);
         mColorBar.setOnSeekBarChangeListener(mArtFragment.getInstaceOfCollorController());
